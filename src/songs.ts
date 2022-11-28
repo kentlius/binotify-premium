@@ -48,6 +48,13 @@ export async function updateSong(id, updates) {
   });
 }
 
+export async function sendAudioFile(formData) {
+  await fetch(`http://localhost:8080/add-premium-song.php`, {
+    method: "POST",
+    body: formData,
+  })
+}
+
 export async function deleteSong(id) {
   await fetch(`http://localhost:3000/songs/${id}`, {
     method: "DELETE",
