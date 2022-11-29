@@ -1,0 +1,64 @@
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(green, black);
+}
+
+Form {
+  width: 500px;
+  height: 450px;
+  padding: 40px 20px !important;
+  margin: 20px !important;
+  background: white;
+  align-items: center;
+  z-index: 2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.5);
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.login{
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+Button.login-button{
+  margin-left: 15%;
+  margin-right: 5%;
+  width: 35%;
+  font-size: 1rem !important;
+  height: auto !important;
+  margin-top: 30px;
+  font-weight: 500 !important;
+  float: right;
+  background-color: #1DB954;
+}
+
+button:hover {
+  border-color: $color1 !important;
+  color: $color1 !important;
+}
+
+button:active,
+button:focus {
+  border-color: $color3 !important;
+  color: $color3 !important;
+}
