@@ -1,6 +1,7 @@
-import { Button, Form, Input, message, Image } from "antd";
+import { Button, Form, Input, Image } from "antd";
 import './login.css'
-import spotify from '../assets/binotify.png'
+import binotify from '../assets/binotify.png'
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
 
 const LoginPage = () => {
 
@@ -22,47 +23,46 @@ const LoginPage = () => {
   return (
     <main>
       <Form
-        name="basic"
-        labelCol={{ span: 7 }}
-        wrapperCol={{ span: 16 }}
+        name="normal_login"
+        className="login"
+        initialValues={{ remember: true }}
         // onFinish={onFinish}
-        autoComplete="off"
       >
         <Form.Item noStyle>
           <div className="header">
-            <Image src={spotify} alt="logo" width="40px" />
+            <Image src={binotify} alt="logo" width="40px" />
             <h1>Binotify</h1>
           </div>
           <h1 className="login">Login to continue</h1>
         </Form.Item>
-
         <Form.Item
-          label="Username"
           name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}
-          style={{ marginBottom: "40px" }}
+          rules={[{ required: true, message: "Please input your Username!" }]}
         >
-          <Input />
+          <Input       
+            size="large" 
+            placeholder="Username"
+          />
         </Form.Item>
-
         <Form.Item
-          label="Password"
           name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[{ required: true, message: "Please input your Password!" }]}
         >
-          <Input.Password />
+          <Input
+            size="large"
+            type="password"
+            placeholder="Password"
+          />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ flex: 1 }}>
-          <div className="button">
-            <Button
-              htmlType="submit"
-              type="ghost"
-              className="login-button"
-            >
-              Login
-            </Button>
+        <Form.Item>
+          <Button type="ghost" htmlType="submit" className="auth-button">
+            Log in
+          </Button>
+          <div className="to-register">
+            Or <a href="/register">register now!</a>
           </div>
+          
         </Form.Item>
       </Form>
     </main>

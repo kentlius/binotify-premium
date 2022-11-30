@@ -7,16 +7,32 @@ main {
   background-image: linear-gradient(green, black);
 }
 
-Form {
+Form.register {
   width: 500px;
-  height: 450px;
-  padding: 40px 20px !important;
-  margin: 20px !important;
+  height: 500px;
+  padding: 20px !important;
   background: white;
   align-items: center;
   z-index: 2;
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.5);
+}
+
+Form.login {
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  background: white;
+  z-index: 2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.5);
+}
+
+.form-item{
+  background-color: pink;
+  align-items: center;
+  width: 400px;
+  padding-left: 0px;
 }
 
 .header{
@@ -40,16 +56,27 @@ Form {
   margin-bottom: 20px;
 }
 
-Button.login-button{
-  margin-left: 15%;
+Button.auth-button{
   margin-right: 5%;
-  width: 35%;
+  width: 100%;
   font-size: 1rem !important;
   height: auto !important;
-  margin-top: 30px;
   font-weight: 500 !important;
-  float: right;
   background-color: #1DB954;
+}
+
+Button.register{
+  width: 100%;
+  text-align: center;
+  font-size: 1rem !important;
+  height: auto !important;
+  font-weight: 500 !important;
+  background-color: #1DB954;
+}
+
+.to-register{
+  float: right;
+  font-weight: 500 !important;
 }
 
 button:hover {

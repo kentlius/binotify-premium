@@ -8,6 +8,7 @@ import Root, {
   action as rootAction,
 } from "./routes/root";
 import Login from "./routes/login";
+import Register from "./routes/register";
 import ErrorPage from "./error-page";
 import Song, { loader as songLoader } from "./routes/song";
 import EditSong, { action as editAction } from "./routes/edit";
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register/>,
   },
 ]);
 
