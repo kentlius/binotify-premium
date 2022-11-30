@@ -5,7 +5,7 @@ import {
   Button,
   Image,
 } from "antd";
-import './login.css';
+import '../styles/auth.css';
 import binotify from '../assets/binotify.png';
 
 

@@ -117,6 +117,7 @@ form[action$="destroy"] button {
 
 #sidebar #header {
   font-size: 1rem;
+  text-decoration: none;
   font-weight: 500;
   display: flex;
   align-items: center;

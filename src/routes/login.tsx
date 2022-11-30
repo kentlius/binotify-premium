@@ -1,24 +1,29 @@
-import { Button, Form, Input, Image } from "antd";
-import './login.css'
+import { Button, Form, Input, Image, message} from "antd";
+import '../styles/auth.css';
 import binotify from '../assets/binotify.png'
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
 
 const LoginPage = () => {
 
-//   const onFinish = async (values: LoginSpec) => {
-//     try {
-//       const result = await login({
-//         username: values.username,
-//         password: values.password,
-//       });
-//       message.success("Login successful");
-//       setJWT(result.jwt);
-//     } catch (e) {
-//       if (e instanceof ApplicationError) {
-//         message.error(e.message);
-//       }
-//     }
-//   };
+  interface LoginData {
+    username: string;
+    password: string;
+  }
+
+  const handleSubmit = async (values: LoginData) => {
+    const response = await fetch('http://localhost:3000/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    });
+    const data = await response.json();
+    if (data.msg == "Successfully logged in") {
+      window.location.href = '/';
+    } else {
+      message.error(data.msg);
+    }
+  };
 
   return (
     <main>
@@ -26,7 +31,7 @@ const LoginPage = () => {
         name="normal_login"
         className="login"
         initialValues={{ remember: true }}
-        // onFinish={onFinish}
+        onFinish={handleSubmit}
       >
         <Form.Item noStyle>
           <div className="header">
