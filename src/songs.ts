@@ -3,9 +3,9 @@ import sortBy from "sort-by";
 
 export async function getSongs(query) {
   await fakeNetwork(`getSongs:${query}`);
-  let songs = await fetch("http://localhost:3000/songs").then((response) =>
-    response.json()
-  );
+  let songs = await fetch("http://localhost:3000/songs", {
+    credentials: "include",
+  }).then((response) => response.json());
   if (!songs) songs = [];
   if (query) {
     songs = matchSorter(songs, query, { keys: ["judul"] });
@@ -25,15 +25,16 @@ export async function createSong() {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
+    credentials: "include",
   }).then((response) => response.json());
   return song;
 }
 
 export async function getSong(id) {
   await fakeNetwork(`song:${id}`);
-  let song = await fetch(`http://localhost:3000/songs/${id}`).then((response) =>
-    response.json()
-  );
+  let song = await fetch(`http://localhost:3000/songs/${id}`, {
+    credentials: "include",
+  }).then((response) => response.json());
   return song ?? null;
 }
 
@@ -45,6 +46,7 @@ export async function updateSong(id, updates) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(updates),
+    credentials: "include",
   });
 }
 
@@ -52,12 +54,14 @@ export async function sendAudioFile(formData) {
   await fetch(`http://localhost:8080/add-premium-song.php`, {
     method: "POST",
     body: formData,
-  })
+    credentials: "include",
+  });
 }
 
 export async function deleteSong(id) {
   await fetch(`http://localhost:3000/songs/${id}`, {
     method: "DELETE",
+    credentials: "include",
   });
 }
 
