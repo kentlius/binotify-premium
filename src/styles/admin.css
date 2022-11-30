@@ -1,0 +1,41 @@
+.list{
+  width: 95vw;
+  height: 90vh;
+  padding: 20px !important;
+  background: white;
+  align-items: center;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  z-index: 2;
+  box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.5);
+}
+
+.right{
+  width: 100vw;
+  height: 5vh;
+  background: green;
+  text-align: right;
+}
+
+p{
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  }
+
+.Logout{
+  margin: 0;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
