@@ -1,7 +1,7 @@
-export async function JWTAuth(body) {
+export async function JWTAuth(loginData) {
   let token = await fetch("http://localhost:3000/auth/login", {
     method: "POST",
-    body: JSON.stringify(body),
+    body: JSON.stringify(loginData),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
