@@ -9,7 +9,7 @@ import Root, {
 } from "./routes/root";
 import Login, { action as loginAction } from "./routes/login";
 import Register, { action as registerAction }from "./routes/register";
-import Admin from "./routes/admin";
+import Admin, { loader as adminLoader } from "./routes/admin";
 import ErrorPage from "./error-page";
 import Song, { loader as songLoader } from "./routes/song";
 import EditSong, { action as editAction } from "./routes/edit";
@@ -61,6 +61,7 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin/>,
+    loader: adminLoader,
   },
 ]);
 

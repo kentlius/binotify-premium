@@ -19,6 +19,9 @@ export async function action() {
 export async function loader({ request }) {
   const url = new URL(request.url);
   const user = await getUser();
+  if(!user){
+    return redirect(`/login`);
+  }
   const q = url.searchParams.get("q");
   const songs = await getSongs(q);
   return { songs, q, user};
