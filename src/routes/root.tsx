@@ -18,9 +18,12 @@ export async function action() {
 
 export async function loader({ request }) {
   const url = new URL(request.url);
-  const user = await getUser();
+  const {user, isAdmin} = await getUser();
   if(!user){
     return redirect(`/login`);
+  }
+  if(isAdmin){
+    return redirect(`/admin`);
   }
   const q = url.searchParams.get("q");
   const songs = await getSongs(q);

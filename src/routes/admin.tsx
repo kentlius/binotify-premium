@@ -2,50 +2,46 @@ import { Table, Button, Space, Layout } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { NavLink } from "react-router-dom";
 import "../styles/admin.css";
-import { getUser, logout } from "../users";
+import { getUser, logout, getSub } from "../users";
 import { useLoaderData, redirect } from "react-router-dom";
 
-const data = [
-  {
-    penyanyi: "Ari Lasso",
-    pengguna: "cust 1",
-  },
-  {
-    penyanyi: "Tulus",
-    pengguna: "cust 2",
-  },
-  {
-    penyanyi: "Taylor Swift",
-    pengguna: "cust 3",
-  },
-];
-
 interface Sub {
-  penyanyi: string;
-  pengguna: string;
+  subscriber_id: number;
+  creator_id: number;
+  creator_name: string;
 }
 
 export async function loader({ request }) {
-  const user = await getUser();
+  const {user, isAdmin} = await getUser();
   if (!user) {
     return redirect(`/login`);
   }
-  return user;
+  if (!isAdmin) {
+    return redirect(`/`);
+  }
+  const sub = await getSub();
+  return { sub, user };
 }
 
 const Admin = () => {
-  const user = useLoaderData();
+  const {sub, user} = useLoaderData();
   const columns: ColumnsType<Sub> = [
     {
-      title: "Penyanyi",
-      dataIndex: "penyanyi",
-      key: "penyanyi",
-      width: "35%",
+      title: "ID Penyanyi",
+      dataIndex: "creator_id",
+      key: "creator_id",
+      width: "10%",
+    },
+    {
+      title: "Nama Penyanyi",
+      dataIndex: "creator_name",
+      key: "creator_name",
+      width: "25%",
     },
     {
       title: "Pengguna",
-      dataIndex: "pengguna",
-      key: "pengguna",
+      dataIndex: "subscriber_id",
+      key: "subscriber_id",
       width: "35%",
     },
     {
@@ -85,7 +81,7 @@ const Admin = () => {
         <Table
           pagination={{ pageSize: 10, position: ["bottomCenter"] }}
           columns={columns}
-          dataSource={data}
+          dataSource={sub}
         />
         {/* TODO: Ilangin row kalo uda acc/ Decline */}
       </div>

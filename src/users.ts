@@ -23,7 +23,7 @@ export async function RegisterUser(registerData) {
 }
 
 export async function getUser() {
-  let {user} = await fetch("http://localhost:3000/", {
+  let user = await fetch("http://localhost:3000/", {
     method: "GET",
     credentials: "include",
   }).then((response) => response.json());
@@ -36,4 +36,12 @@ export async function logout() {
     credentials: "include",
   }).then((response) => response.json());
   return data;
+}
+
+export async function getSub() {
+  let data = await fetch("http://localhost:3000/subscription", {
+    method: "GET",
+    credentials: "include",
+  }).then((response) => response.json());
+  return data.res;
 }
