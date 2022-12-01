@@ -4,7 +4,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(green, black);
 }
 
 Form.register {
@@ -65,27 +64,7 @@ Button.auth-button{
   background-color: #1DB954;
 }
 
-Button.register{
-  width: 100%;
-  text-align: center;
-  font-size: 1rem !important;
-  height: auto !important;
-  font-weight: 500 !important;
-  background-color: #1DB954;
-}
-
 .to-register{
   float: right;
   font-weight: 500 !important;
-}
-
-button:hover {
-  border-color: $color1 !important;
-  color: $color1 !important;
-}
-
-button:active,
-button:focus {
-  border-color: $color3 !important;
-  color: $color3 !important;
 }
