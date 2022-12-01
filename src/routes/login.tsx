@@ -1,18 +1,3 @@
-import { Form, redirect } from "react-router-dom";
-import { JWTAuth } from "../users";
-import binotify from '../assets/binotify.png'
-
-export async function action({ request, params }) {
-  const formData = await request.formData();
-  let loginData = Object.fromEntries(formData);
-  const token = await JWTAuth(loginData);
-  if (token) {
-    return redirect(`/`);
-  } else {
-    return redirect(`/login`);
-  }
-}
-
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -23,6 +8,24 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { message }  from 'antd';
+import { Form, redirect } from "react-router-dom";
+import { JWTAuth } from "../users";
+import binotify from '../assets/binotify.png'
+
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  let loginData = Object.fromEntries(formData);
+  const Response = await JWTAuth(loginData);
+  if (Response.token) {
+    message.success('Login Success');
+    return redirect(`/`);
+  } else {
+    message.error('Login Failed' + ": " + Response.msg);
+    return redirect(`/login`);
+  }
+}
+
 
 const theme = createTheme();
 

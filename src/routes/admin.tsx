@@ -23,7 +23,7 @@ interface Sub{
     pengguna: string;
 }
 
-const Subscriprtions = () => {
+const Admin = () => {
     const columns: ColumnsType<Sub> = [
       {
         title: "Penyanyi",
@@ -81,4 +81,4 @@ const Subscriprtions = () => {
     );
     };
 
-export default Subscriprtions;
+export default Admin;
