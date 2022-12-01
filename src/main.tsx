@@ -7,7 +7,7 @@ import Root, {
   loader as rootLoader,
   action as rootAction,
 } from "./routes/root";
-import Login from "./routes/login";
+import Login, { action as loginAction } from "./routes/login";
 import Register from "./routes/register";
 import ErrorPage from "./error-page";
 import Song, { loader as songLoader } from "./routes/song";
@@ -50,6 +50,7 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+    action: loginAction,
   },
   {
     path: "/register",
