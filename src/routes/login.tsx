@@ -17,10 +17,14 @@ export async function action({ request, params }) {
   const formData = await request.formData();
   let loginData = Object.fromEntries(formData);
   const Response = await JWTAuth(loginData);
-  if (Response.token) {
+  if (Response.isadmin) {
     message.success('Login Success');
+    return redirect(`/admin`);
+  }else if(!Response.isadmin){
+    message.success("Login Success");
     return redirect(`/`);
-  } else {
+  }
+  else {
     message.error('Login Failed' + ": " + Response.msg);
     return redirect(`/login`);
   }
@@ -37,15 +41,19 @@ export default function Login() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            marginTop: 40,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-            <img src={binotify} alt="logo" width="40px" />
-          <Typography component="h1" variant="h5">
-            Sign in
+          <div className="logo">
+            <img src={binotify} alt="logo" />
+            <p>Binotify Premium</p>
+          </div>
+
+          <Typography component="h1" variant="h5" mt={2}>
+            Login to Continue
           </Typography>
           <Box component={Form} method="post" id="login-form">
             <TextField
@@ -57,6 +65,7 @@ export default function Login() {
               name="username"
               autoComplete="username"
               autoFocus
+              color="success"
             />
             <TextField
               margin="normal"
@@ -67,20 +76,25 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              color="success"
             />
             <Button
               type="submit"
               fullWidth
               variant="contained"
+              color="success"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Login
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                <p>
+                  Don't have an account?
+                  <Link href="/register" variant="body2">
+                    SignUp
+                  </Link>
+                </p>
               </Grid>
             </Grid>
           </Box>

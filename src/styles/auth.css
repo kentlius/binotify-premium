@@ -55,16 +55,31 @@ Form.login {
   margin-bottom: 20px;
 }
 
-Button.auth-button{
-  margin-right: 5%;
-  width: 100%;
-  font-size: 1rem !important;
-  height: auto !important;
-  font-weight: 500 !important;
-  background-color: #1DB954;
-}
-
 .to-register{
   float: right;
   font-weight: 500 !important;
+}
+
+.logo{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img{
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo p{
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+ThemeProvider {
+  background-color: black;
 }

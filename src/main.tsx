@@ -8,7 +8,7 @@ import Root, {
   action as rootAction,
 } from "./routes/root";
 import Login, { action as loginAction } from "./routes/login";
-import Register from "./routes/register";
+import Register, { action as registerAction }from "./routes/register";
 import Admin from "./routes/admin";
 import ErrorPage from "./error-page";
 import Song, { loader as songLoader } from "./routes/song";
@@ -56,6 +56,7 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register/>,
+    action: registerAction,
   },
   {
     path: "/admin",
