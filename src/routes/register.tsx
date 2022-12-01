@@ -1,7 +1,7 @@
 import { Form, redirect } from "react-router-dom";
-import "../styles/auth.css";
 import { RegisterUser } from "../users";
 import { useState } from "react";
+import { message } from "antd";
 import binotify from "../assets/binotify.png";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,14 +12,16 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import "../styles/auth.css";
 
 export async function action({ request, params }) {
   const formData = await request.formData();
   let RegisterData = Object.fromEntries(formData);
   const data = await RegisterUser(RegisterData);
   if (data.error) {
-    alert(data.error);
+    message.error("Register Failed: " + data.error)
   } else {
+    message.success("Register Success, Logged In");
     return redirect(`/`);
   }
 }

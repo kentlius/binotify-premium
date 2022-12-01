@@ -26,7 +26,6 @@ export async function action({ request, params }) {
   }
   else {
     message.error('Login Failed' + ": " + Response.msg);
-    return redirect(`/login`);
   }
 }
 
