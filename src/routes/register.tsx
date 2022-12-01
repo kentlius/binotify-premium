@@ -36,7 +36,7 @@ export default function Register() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 25,
+            marginTop: 10,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

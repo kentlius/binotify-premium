@@ -21,3 +21,19 @@ export async function RegisterUser(registerData) {
   }).then((response) => response.json());
   return data;
 }
+
+export async function getUser() {
+  let {user} = await fetch("http://localhost:3000/", {
+    method: "GET",
+    credentials: "include",
+  }).then((response) => response.json());
+  return user;
+}
+
+export async function logout() {
+  let data = await fetch("http://localhost:3000/auth/logout", {
+    method: "POST",
+    credentials: "include",
+  }).then((response) => response.json());
+  return data;
+}

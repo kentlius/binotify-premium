@@ -79,7 +79,3 @@ Form.login {
   font-weight: 500;
   margin: 0;
 }
-
-ThemeProvider {
-  background-color: black;
-}
