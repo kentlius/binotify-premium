@@ -7,9 +7,9 @@ import {
   useNavigation,
   useSubmit,
 } from "react-router-dom";
-import { getSongs, createSong } from "../songs";
+import { getSongs, createSong } from "../func/songs";
 import { useEffect } from "react";
-import { getUser, logout } from "../users";
+import { getUser, logout } from "../func/users";
 import { useState } from "react";
 export async function action() {
   const song = await createSong();

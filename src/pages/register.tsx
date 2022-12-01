@@ -1,5 +1,5 @@
 import { Form, redirect } from "react-router-dom";
-import { RegisterUser } from "../users";
+import { RegisterUser } from "../func/users";
 import { useState } from "react";
 import { message } from "antd";
 import binotify from "../assets/binotify.png";

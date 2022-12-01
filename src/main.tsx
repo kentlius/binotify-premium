@@ -6,15 +6,15 @@ import "./index.css";
 import Root, {
   loader as rootLoader,
   action as rootAction,
-} from "./routes/root";
-import Login, { action as loginAction } from "./routes/login";
-import Register, { action as registerAction }from "./routes/register";
-import Admin, { loader as adminLoader } from "./routes/admin";
-import ErrorPage from "./error-page";
-import Song, { loader as songLoader } from "./routes/song";
-import EditSong, { action as editAction } from "./routes/edit";
-import { action as destroyAction } from "./routes/destroy";
-import Index from "./routes/index";
+} from "./pages/root";
+import Login, { action as loginAction } from "./pages/login";
+import Register, { action as registerAction }from "./pages/register";
+import Admin, { loader as adminLoader } from "./pages/admin";
+import ErrorPage from "./pages/error-page";
+import Song, { loader as songLoader } from "./components/song";
+import EditSong, { action as editAction } from "./components/edit";
+import { action as destroyAction } from "./components/destroy";
+import Index from "./components/index";
 
 const router = createBrowserRouter([
   {

@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { message }  from 'antd';
 import { Form, redirect } from "react-router-dom";
-import { JWTAuth } from "../users";
+import { JWTAuth } from "../func/users";
 import binotify from '../assets/binotify.png'
 
 export async function action({ request, params }) {

@@ -1,5 +1,5 @@
 import { Form, useLoaderData, redirect, useNavigate } from "react-router-dom";
-import { updateSong, sendAudioFile } from "../songs";
+import { updateSong, sendAudioFile } from "../func/songs";
 
 export async function action({ request, params }) {
   const formData = await request.formData();

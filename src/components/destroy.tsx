@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-import { deleteSong } from "../songs";
+import { deleteSong } from "../func/songs";
 
 export async function action({ params }) {
   // throw new Error("oh dang!");

@@ -2,7 +2,7 @@ import { Table, Button, Space, Layout } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { NavLink } from "react-router-dom";
 import "../styles/admin.css";
-import { getUser, logout, getSub } from "../users";
+import { getUser, logout, getSub } from "../func/users";
 import { useLoaderData, redirect } from "react-router-dom";
 
 interface Sub {

@@ -1,5 +1,5 @@
 import { Form, useLoaderData } from "react-router-dom";
-import { getSong } from "../songs";
+import { getSong } from "../func/songs";
 
 export async function loader({ params }) {
   const song = await getSong(params.songId);
