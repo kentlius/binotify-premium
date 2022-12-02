@@ -34,6 +34,7 @@ Lalu buka http://localhost:5713/
 
 ## Pembagian Tugas
 
-Frontend Binotify Premium Halaman X : 13520xxx, 13520xxx
-Frontend Binotify Premium Halaman Y : 13520xxx
-(Lanjutkan…)
+Frontend Binotify Premium Halaman Login : 13520xxx, 13520006, 13520069, 13520167
+Frontend Binotify Premium Halaman Register : 13520006
+Frontend Binotify Premium Halaman Permintaan Subscription : 13520006, 13520167
+Frontend Binotify Premium Halaman Pengelolaan Lagu : 13520069, 13520006
