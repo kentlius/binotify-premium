@@ -1,39 +1,37 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { message }  from 'antd';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { message } from "antd";
 import { Form, redirect } from "react-router-dom";
 import { JWTAuth } from "../func/users";
-import binotify from '../assets/binotify.png'
+import binotify from "../assets/binotify.png";
 
 export async function action({ request, params }) {
   const formData = await request.formData();
   let loginData = Object.fromEntries(formData);
   const Response = await JWTAuth(loginData);
+  console.log(Response);
   if (Response.isadmin) {
-    message.success('Login Success');
+    message.success("Login Success");
     return redirect(`/admin`);
-  }else if(!Response.isadmin){
+  } else if (!Response.isadmin && !Response.msg) {
     message.success("Login Success");
     return redirect(`/`);
-  }
-  else {
-    message.error('Login Failed' + ": " + Response.msg);
+  } else {
+    message.error("Login Failed" + ": " + Response.msg);
   }
 }
-
 
 const theme = createTheme();
 
 export default function Login() {
-
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
