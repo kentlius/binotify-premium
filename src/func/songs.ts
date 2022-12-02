@@ -19,7 +19,7 @@ export async function createSong() {
     method: "POST",
     body: JSON.stringify({
       judul: "Sample Song",
-      audio_path: "./audio/sample_song.mp3",
+      audio_path: "./uploads/audio/sample_song.mp3",
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",

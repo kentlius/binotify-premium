@@ -4,7 +4,7 @@ import { updateSong, sendAudioFile } from "../func/songs";
 export async function action({ request, params }) {
   const formData = await request.formData();
   await sendAudioFile(formData);
-  formData.set("audio_path", `uploads/audio/${formData.get("audio_path").name}`);
+  formData.set("audio_path", `./uploads/audio/${formData.get("audio_path").name}`);
   let updates = Object.fromEntries(formData);
   await updateSong(params.songId, updates);
   return redirect(`/songs/${params.songId}`);
